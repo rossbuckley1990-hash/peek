@@ -6,8 +6,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
-        python: ["3.9", "3.13"]
+        include:
+          # 3.9 on macOS: Apple's built-in /usr/bin/python3 is 3.9, and the single-file install runs on it
+          - { os: macos-latest, python: "3.9" }
+          - { os: macos-latest, python: "3.13" }
+          # setup-python has no 3.9 build for current Ubuntu images (3.9 is end-of-life)
+          - { os: ubuntu-latest, python: "3.10" }
+          - { os: ubuntu-latest, python: "3.13" }
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
