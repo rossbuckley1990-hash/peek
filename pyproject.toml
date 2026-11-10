@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-peek"
+version = "0.1.0"
+description = "Give your AI agent eyes on your other terminals. Stop copy-pasting errors."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Ross Buckley" }]
+keywords = ["ai", "agent", "claude-code", "codex", "terminal", "tmux", "dev-server", "cli"]
+classifiers = [
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Debuggers",
+]
+
+[project.urls]
+Homepage = "https://github.com/rossbuckley1990-hash/peek"
+
+[project.scripts]
+peek = "peek:entry"
+
+[tool.setuptools]
+py-modules = ["peek"]
